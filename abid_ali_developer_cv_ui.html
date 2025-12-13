@@ -22,16 +22,16 @@
 
     body {
       background: #e5e7eb;
-      padding: 40px;
+      padding: 32px;
     }
 
     .cv {
-      max-width: 1050px;
+      max-width: 1020px;
       margin: auto;
       background: #fff;
       display: grid;
       grid-template-columns: 340px 1fr;
-      min-height: 1120px;
+      min-height: 1080px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.12);
       border-radius: 14px;
       overflow: hidden;
@@ -111,6 +111,8 @@
     .main {
       padding: 44px 52px;
       color: var(--dark);
+      font-size: 15px;
+      line-height: 1.7;
     }
 
     .main h2 {
@@ -182,9 +184,17 @@
       font-size: 14px;
     }
 
+    @page {
+      size: A4;
+      margin: 12mm;
+    }
+
     @media print {
-      body { background: none; padding: 0; }
-      .cv { box-shadow: none; border-radius: 0; }
+      body { background: #fff; padding: 0; }
+      .cv { box-shadow: none; border-radius: 8px; border: 1px solid #dbe0e7; margin: 0 auto; min-height: auto; }
+      a { color: #0f172a; text-decoration: none; }
+      .sidebar { padding: 34px 28px; }
+      .main { padding: 34px 40px; }
     }
   </style>
 </head>
