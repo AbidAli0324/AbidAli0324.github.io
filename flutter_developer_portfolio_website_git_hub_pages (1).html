@@ -88,7 +88,7 @@
 <body>
 
 <header>
-  <img src="images/profile.jpg" alt="Professional profile photo" style="width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid #93c5fd;display:block;margin:0 auto 20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);transform:scale(1);transition:transform 0.25s ease, box-shadow 0.25s ease;" onmouseenter="this.style.transform='scale(1.03)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.28)';" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.25)';" />
+  <img src="images/profile.jpg" alt="Professional profile photo" style="width:clamp(150px, 40vw, 190px);height:clamp(150px, 40vw, 190px);border-radius:50%;object-fit:cover;border:3px solid #93c5fd;display:block;margin:0 auto 20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);transform:scale(1);transition:transform 0.25s ease, box-shadow 0.25s ease;" onmouseenter="this.style.transform='scale(1.03)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.28)';" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.25)';" />
   <div style="font-size:1.6rem;font-weight:600;letter-spacing:0.01em;margin-bottom:12px;">Abid Ali</div>
   <h1 style="margin-bottom:16px;">Flutter Mobile App Developer</h1>
   <p style="margin:0 auto;">Software Engineering student with 12+ production Flutter apps, Firebase expertise, and AI-powered mobile application development experience.</p>
@@ -156,6 +156,10 @@
     <div class="card">
       <h3>Expense Tracker App</h3>
       <p>Budgets, expense CRUD, early warnings, weekly/monthly/yearly reports.</p>
+    </div>
+    <div class="card">
+      <h3>Restaurant Management & Food Delivery App</h3>
+      <p><strong style="color:#93c5fd;display:block;margin-bottom:8px;">Multi-Role Production App</strong>Production-ready Flutter suite built for scale with customer, admin, and delivery boy roles. Real-time tracking, Firebase auth, menu browsing, cart and orders, item/category CRUD, order approvals, delivery status updates, and push-ready messaging via Firestore/FCM.</p>
     </div>
   </div>
 </section>
