@@ -41,19 +41,41 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      align-items: stretch;
+    }
+
+    /* Featured Projects: mobile-first single column, lock to two columns on desktop for wider cards */
+    #projects .grid {
+      grid-template-columns: 1fr;
     }
 
     .card {
       background: #020617;
-      padding: 25px;
+      padding: 24px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
     }
 
-    .card h3 { margin-bottom: 10px; color: #60a5fa; }
+    .card h3 { margin-bottom: 6px; color: #60a5fa; }
+
+    .card p { margin-bottom: 8px; line-height: 1.6; }
+
+    .card ul { margin-bottom: 10px; padding-left: 18px; }
+
+    .card li { margin-bottom: 7px; line-height: 1.5; }
 
     ul { padding-left: 20px; }
     li { margin-bottom: 8px; }
+
+    @media (min-width: 960px) {
+      #projects .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+      #projects .card ul { margin-bottom: 8px; }
+      #projects .card li { margin-bottom: 7px; }
+    }
 
     .cta {
       text-align: center;
@@ -142,24 +164,64 @@
   <h2>Featured Projects</h2>
   <div class="grid">
     <div class="card">
-      <h3>Hospital Management App</h3>
-      <p>Patient registration, appointments, staff modules, and secure medical data using Firebase.</p>
+      <h3>Hospital Management Mobile App</h3>
+      <p>Production-level hospital management app streamlining patient and staff operations with a secure, scalable architecture.</p>
+      <ul>
+        <li>Patient registration and profile management</li>
+        <li>Doctor scheduling and appointment booking</li>
+        <li>Role-based access for staff and administration</li>
+        <li>Secure authentication and data handling</li>
+        <li>Firebase-powered backend operations</li>
+      </ul>
+      <p><strong>Tech:</strong> Flutter, Firebase Authentication, Cloud Firestore</p>
     </div>
     <div class="card">
-      <h3>E-Commerce App</h3>
-      <p>Product listing, cart, checkout, order tracking, and user authentication.</p>
+      <h3>E-Commerce Mobile Application</h3>
+      <p>Full-featured e-commerce app built for real businesses with performance, usability, and secure transactions at the core.</p>
+      <ul>
+        <li>Product browsing with categories</li>
+        <li>Shopping cart and checkout system</li>
+        <li>User authentication and order tracking</li>
+        <li>Admin product and order management</li>
+        <li>Scalable backend using Firebase</li>
+      </ul>
+      <p><strong>Tech:</strong> Flutter, Firebase, Cloud Firestore</p>
     </div>
     <div class="card">
-      <h3>AI Kids Learning App</h3>
-      <p>Alphabet & number prediction using Python Keras AI models integrated into Flutter.</p>
+      <h3>AI-Powered Kids Learning App</h3>
+      <p>Intelligent kids learning app with custom AI models for engaging, interactive education and real-time prediction results.</p>
+      <ul>
+        <li>Alphabet recognition powered by AI</li>
+        <li>Number prediction via image input</li>
+        <li>Child-friendly, interactive UI</li>
+        <li>Real-time AI prediction feedback</li>
+        <li>Secure data storage and user sessions</li>
+      </ul>
+      <p><strong>Tech:</strong> Flutter, Python, Keras, Firebase</p>
     </div>
     <div class="card">
-      <h3>Expense Tracker App</h3>
-      <p>Budgets, expense CRUD, early warnings, weekly/monthly/yearly reports.</p>
+      <h3>Expense Tracker & Budget Management App</h3>
+      <p>Smart financial tracking app that helps users manage budgets, control spending, and gain clear insights into expenses.</p>
+      <ul>
+        <li>Budget creation and management (CRUD)</li>
+        <li>Expense tracking with category support</li>
+        <li>Early warning system for budget limits</li>
+        <li>Weekly, monthly, and yearly reports</li>
+        <li>Data visualization and analytics</li>
+      </ul>
+      <p><strong>Tech:</strong> Flutter, Firebase, Cloud Firestore</p>
     </div>
     <div class="card">
       <h3>Restaurant Management & Food Delivery App</h3>
-      <p><strong style="color:#93c5fd;display:block;margin-bottom:8px;">Multi-Role Production App</strong>Production-ready Flutter suite built for scale with customer, admin, and delivery boy roles. Real-time tracking, Firebase auth, menu browsing, cart and orders, item/category CRUD, order approvals, delivery status updates, and push-ready messaging via Firestore/FCM.</p>
+      <p><strong style="color:#93c5fd;display:block;margin-bottom:8px;">Multi-Role Production App</strong>Complete restaurant management and delivery suite built for real operations with scalable, real-time order flows.</p>
+      <ul>
+        <li>Customer app: menu browsing, cart, order placement</li>
+        <li>Admin app: food management, order control, pricing</li>
+        <li>Delivery app: assigned orders and delivery tracking</li>
+        <li>Real-time order status updates across roles</li>
+        <li>Role-based authentication and secure data</li>
+      </ul>
+      <p><strong>Tech:</strong> Flutter, Firebase Authentication, Cloud Firestore, FCM</p>
     </div>
   </div>
 </section>
@@ -168,12 +230,24 @@
   <h2>Client Testimonials</h2>
   <div class="grid">
     <div class="card">
-      <p>“Delivered exactly what we needed. The Flutter app was fast, clean, and scalable.”</p>
-      <strong>— Private Client (Healthcare App)</strong>
+      <p>“Our hospital scheduling was chaos before this app. Now doctors, nurses, and front desk staff stay in sync, and patient wait times dropped. Build quality is solid and Abid kept us updated every sprint.”</p>
+      <strong>— Hospital Admin</strong>
     </div>
     <div class="card">
-      <p>“Excellent Firebase integration and clear communication throughout the project.”</p>
+      <p>“We struggled with abandoned carts and slow updates. The new e-commerce app feels fast, checkout is smooth, and product changes go live instantly. Communication was clear and timelines were met.”</p>
       <strong>— E‑Commerce Business Owner</strong>
+    </div>
+    <div class="card">
+      <p>“Our kids’ learning content wasn’t engaging. The AI-powered app now gives instant feedback on drawings and keeps parents in the loop. The build is stable, and weekly check-ins made the process easy.”</p>
+      <strong>— Education Startup Founder</strong>
+    </div>
+    <div class="card">
+      <p>“We had spreadsheets everywhere and no budget visibility. The expense tracker app now warns us before we overspend and shows clean reports. Delivery quality was high and communication was straightforward.”</p>
+      <strong>— Finance Manager</strong>
+    </div>
+    <div class="card">
+      <p>“Orders were getting lost between the diner, kitchen, and drivers. The restaurant suite synced everything in real time, and customers get accurate status updates. Abid shipped reliably and explained every release.”</p>
+      <strong>— Restaurant Operations Lead</strong>
     </div>
   </div>
 </section>
