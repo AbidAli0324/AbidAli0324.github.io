@@ -206,6 +206,22 @@
 
     .btn:hover { background: #1e40af; }
 
+    .about-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .about-list li {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #e5e7eb;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -241,8 +257,13 @@
 
 <section id="about">
   <h2>About Me</h2>
-  <p><strong>Abid Ali — Flutter Mobile App Developer</strong> delivering production-grade Android and iOS apps with clean architecture, real-time sync, and secure auth.</p>
-  <p>I partner with founders and teams to launch and iterate fast: 12+ shipped apps across healthcare, e-commerce, AI learning, finance, and restaurant operations. Expect clear weekly updates, testable builds, and Firebase-backed reliability from day one.</p>
+  <p><strong>Abid Ali — Flutter Mobile App Developer</strong>. I build production Android/iOS apps with clean architecture, real-time sync, secure auth, and fast releases.</p>
+  <ul class="about-list">
+    <li>12+ shipped apps for healthcare, e-commerce, AI learning, finance, and restaurant ops.</li>
+    <li>Weekly test builds and clear updates so you always see progress.</li>
+    <li>Firebase-backed reliability: auth, real-time data, push, and performance tuning.</li>
+    <li>Jump into existing codebases to fix bugs, stabilize releases, and ship new features without downtime.</li>
+  </ul>
 </section>
 
 <section id="skills">
