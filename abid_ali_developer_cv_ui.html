@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abid Ali – Freelance Flutter Developer CV</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --accent: #22c55e;
+      --dark: #0f172a;
+      --gray: #475569;
+      --light: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #e5e7eb;
+      padding: 40px;
+    }
+
+    .cv {
+      max-width: 1050px;
+      margin: auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 1120px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    /* LEFT PANEL */
+    .sidebar {
+      background: linear-gradient(180deg, var(--dark), #020617);
+      color: #fff;
+      padding: 42px 32px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      display: block;
+      border: 5px solid var(--primary);
+      object-fit: cover;
+    }
+
+    .name {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    .role {
+      text-align: center;
+      font-size: 14px;
+      color: #c7d2fe;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #052e16;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin: 0 auto 28px;
+      display: table;
+    }
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin: 30px 0 12px;
+      color: #93c5fd;
+    }
+
+    .sidebar p,
+    .sidebar li {
+      font-size: 14px;
+      color: #e5e7eb;
+      margin-bottom: 9px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .skill {
+      background: rgba(255,255,255,0.08);
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    /* RIGHT PANEL */
+    .main {
+      padding: 44px 52px;
+      color: var(--dark);
+    }
+
+    .main h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    .main-section {
+      margin-bottom: 34px;
+    }
+
+    .main p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray);
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #020617;
+    }
+
+    .job {
+      margin-bottom: 22px;
+    }
+
+    .job h3 {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .job span {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    .project strong {
+      font-size: 16px;
+      color: #020617;
+    }
+
+    .project p {
+      margin-top: 4px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-box h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .cta-box p {
+      color: #dbeafe;
+      font-size: 14px;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .cv { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- LEFT -->
+  <aside class="sidebar">
+    <img src="images/profile.jpg" alt="Profile" class="profile-img" />
+
+    <div class="name">Abid Ali</div>
+    <div class="role">Flutter Mobile App Developer</div>
+    <div class="badge">Available for Freelance</div>
+
+    <div class="section-title">Contact</div>
+    <p>📍 Pakistan</p>
+    <p>📧 <a href="mailto:abidalimughal0324@gmail.com" style="color:#e5e7eb;text-decoration:none;">abidalimughal0324@gmail.com</a></p>
+    <p>📞 <a href="https://wa.me/923240802723" style="color:#e5e7eb;text-decoration:none;">+92 324 0802723</a></p>
+    <p>🌐 <a href="https://abidali0324.github.io/" style="color:#e5e7eb;text-decoration:none;">abidali0324.github.io</a></p>
+    <p>💼 <a href="https://linkedin.com/in/abid-ali-8720b9272" style="color:#e5e7eb;text-decoration:none;">LinkedIn</a></p>
+
+    <div class="section-title">Core Skills</div>
+    <div class="skill">Flutter (Android & iOS)</div>
+    <div class="skill">Firebase (Auth, Firestore)</div>
+    <div class="skill">REST APIs Integration</div>
+    <div class="skill">C# Windows Forms</div>
+    <div class="skill">Laravel & PHP</div>
+    <div class="skill">SQL Server / MySQL</div>
+
+    <div class="section-title">Languages</div>
+    <p>English</p>
+    <p>Urdu</p>
+  </aside>
+
+  <!-- RIGHT -->
+  <main class="main">
+
+    <section class="main-section">
+      <h2>Freelance Profile Summary</h2>
+      <p>
+        <span class="highlight">Professional Flutter Mobile App Developer</span> with
+        <span class="highlight">12+ production-ready applications</span> delivered for
+        private clients. Specialized in building scalable, secure, and business-driven
+        mobile apps including <span class="highlight">restaurant systems, hospital apps,
+        AI-powered learning platforms, e-commerce solutions,</span> and financial tracking
+        applications.
+      </p>
+    </section>
+
+    <section class="main-section">
+      <h2>Professional Experience</h2>
+      <div class="job">
+        <h3>Software Engineer – AJ Code to Cure</h3>
+        <span>2024 – Present</span>
+        <p>
+          Working on real-world client applications including healthcare systems, desktop
+          software, and mobile platforms. Responsible for full-cycle development, database
+          design, API integration, and deployment.
+        </p>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <h2>Selected Client Projects</h2>
+
+      <div class="project">
+        <strong>Restaurant Management System</strong>
+        <p>
+          Multi-role Flutter platform including Customer App, Admin Panel, and Delivery Boy
+          App. Features online ordering, order tracking, payments, and real-time status
+          updates using Firebase and REST APIs.
+        </p>
+      </div>
+
+      <div class="project">
+        <strong>AI-Based Kids Learning App</strong>
+        <p>
+          Intelligent learning application using Flutter with Python Keras AI model for
+          number and alphabet prediction. Designed for early education with interactive UI
+          and real-time feedback.
+        </p>
+      </div>
+
+      <div class="project">
+        <strong>Expense Tracker & Budgeting App</strong>
+        <p>
+          Advanced personal finance app featuring budget creation, expense CRUD, early
+          warning alerts, and weekly/monthly/yearly financial reports.
+        </p>
+      </div>
+
+      <div class="project">
+        <strong>Hospital & Clinic Management App</strong>
+        <p>
+          Flutter-based hospital system with appointment booking, patient management, and
+          admin controls integrated with backend services.
+        </p>
+      </div>
+    </section>
+
+    <section class="main-section">
+      <h2>Education</h2>
+      <p><strong>BS Software Engineering</strong> – Virtual University of Pakistan</p>
+      <p>Currently in 6th Semester</p>
+    </section>
+
+    <div class="cta-box">
+      <h3>Ready to Build Your App?</h3>
+      <p>Available for freelance Flutter projects – Mobile apps, APIs & full solutions</p>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
