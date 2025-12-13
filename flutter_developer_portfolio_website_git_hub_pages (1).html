@@ -430,15 +430,29 @@ if (observedSections.length) {
     if (ticking) return;
     ticking = true;
     window.requestAnimationFrame(() => {
-      const anchor = window.innerHeight * 0.38; // favor upper-mid viewport
-      let current = null;
+      const viewportH = window.innerHeight;
+      const anchor = viewportH * 0.45; // near mid-viewport
+      let bestId = null;
+      let bestDistance = Infinity;
+
       observedSections.forEach(section => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= anchor && rect.bottom >= anchor) {
-          current = section.id;
+        const midpoint = rect.top + rect.height / 2;
+        const isVisible = rect.bottom >= 60 && rect.top <= viewportH * 0.9;
+        if (!isVisible) return;
+        const distance = Math.abs(midpoint - anchor);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestId = section.id;
         }
       });
-      setActive(current);
+
+      const nearBottom = viewportH + window.scrollY >= document.body.offsetHeight - 12;
+      if (!bestId && nearBottom && observedSections.length) {
+        bestId = observedSections[observedSections.length - 1].id;
+      }
+
+      setActive(bestId || observedSections[0].id);
       ticking = false;
     });
   };
