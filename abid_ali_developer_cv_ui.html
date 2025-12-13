@@ -23,6 +23,7 @@
     body {
       background: #e5e7eb;
       padding: 32px;
+      color: #1f2937;
     }
 
     .cv {
@@ -70,14 +71,16 @@
 
     .badge {
       display: inline-block;
-      background: var(--accent);
-      color: #052e16;
+      background: #10b981;
+      color: #022c22;
       font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      padding: 7px 16px;
       border-radius: 999px;
       margin: 0 auto 28px;
       display: table;
+      box-shadow: 0 6px 16px rgba(16,185,129,0.28);
     }
 
     .section-title {
@@ -95,6 +98,8 @@
       margin-bottom: 9px;
     }
 
+    .sidebar a { color: #e5e7eb; text-decoration: none; }
+
     ul {
       list-style: none;
     }
@@ -110,9 +115,9 @@
     /* RIGHT PANEL */
     .main {
       padding: 44px 52px;
-      color: var(--dark);
-      font-size: 15px;
-      line-height: 1.7;
+      color: #1f2937;
+      font-size: 15.5px;
+      line-height: 1.75;
     }
 
     .main h2 {
@@ -128,9 +133,9 @@
     }
 
     .main p {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--gray);
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #1f2937;
     }
 
     .highlight {
@@ -251,10 +256,10 @@
 
     <section class="main-section">
       <h2>Highlights</h2>
-      <ul style="margin-left:18px; color: var(--gray); line-height:1.7;">
-        <li>Shipped 12+ real-world Flutter apps across healthcare, e-commerce, AI learning, finance, and restaurant operations.</li>
-        <li>Experienced with Firebase (Auth, Firestore, FCM), REST APIs, and clean architecture for scalable releases.</li>
-        <li>Jump into existing codebases to fix bugs, stabilize production, and deliver new features without downtime.</li>
+      <ul style="margin-left:18px; color:#1f2937; line-height:1.75;">
+        <li>Shipped 12+ production Flutter apps (healthcare, e-commerce, AI learning, finance, restaurant ops) with store-ready builds.</li>
+        <li>Firebase-first delivery: Auth, Firestore, FCM, analytics; real-time sync and push with crash-free targets.</li>
+        <li>Drop into existing codebases to stabilize, reduce crash sources, and ship features without downtime.</li>
       </ul>
     </section>
 
@@ -266,10 +271,10 @@
         <p>
           Build and maintain production apps across healthcare, restaurant ops, and finance. Own features from UI to backend integration, ensuring stable releases and clear client updates.
         </p>
-        <ul style="margin-left:18px; color: var(--gray); line-height:1.7;">
-          <li>Implemented real-time ordering and status updates using Firebase/FCM.</li>
-          <li>Optimized app performance and reduced crash sources via structured error logging.</li>
-          <li>Collaborated with clients on weekly demos and test builds to keep scope aligned.</li>
+        <ul style="margin-left:18px; color:#1f2937; line-height:1.75;">
+          <li>Implemented real-time ordering and status updates with Firebase/FCM, cutting support tickets for “order lost” events.</li>
+          <li>Reduced crash sources through structured logging and error triage; improved stability ahead of store submissions.</li>
+          <li>Ran weekly demos and TestFlight/Internal builds to keep scope aligned and releases predictable.</li>
         </ul>
       </div>
     </section>
@@ -282,7 +287,7 @@
         <p>
           Multi-role Flutter platform including Customer App, Admin Panel, and Delivery Boy
           App. Features online ordering, order tracking, payments, and real-time status
-          updates using Firebase and REST APIs.
+          updates using Firebase and REST APIs; reduced missed/duplicate orders across roles.
         </p>
       </div>
 
@@ -291,7 +296,7 @@
         <p>
           Intelligent learning application using Flutter with Python Keras AI model for
           number and alphabet prediction. Designed for early education with interactive UI
-          and real-time feedback.
+          and real-time feedback to keep learners engaged.
         </p>
       </div>
 
@@ -299,7 +304,7 @@
         <strong>Expense Tracker & Budgeting App</strong>
         <p>
           Advanced personal finance app featuring budget creation, expense CRUD, early
-          warning alerts, and weekly/monthly/yearly financial reports.
+          warning alerts, and weekly/monthly/yearly financial reports; helps users avoid overspend with proactive alerts.
         </p>
       </div>
 
@@ -307,7 +312,7 @@
         <strong>Hospital & Clinic Management App</strong>
         <p>
           Flutter-based hospital system with appointment booking, patient management, and
-          admin controls integrated with backend services.
+          admin controls integrated with backend services; streamlines scheduling and check-ins for staff and patients.
         </p>
       </div>
     </section>
