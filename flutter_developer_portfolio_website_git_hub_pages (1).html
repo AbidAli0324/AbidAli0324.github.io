@@ -226,6 +226,8 @@
 <nav class="navbar">
   <div class="nav-inner">
     <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
@@ -237,12 +239,13 @@
   </div>
 </nav>
 
-<section>
+<section id="about">
   <h2>About Me</h2>
-  <p>I am a professional Flutter Mobile Application Developer specializing in scalable, business-driven mobile apps. I have delivered 12+ real-world apps for private clients including hospital systems, e-commerce platforms, AI-based learning apps, and financial tracking solutions.</p>
+  <p><strong>Abid Ali — Flutter Mobile App Developer</strong> delivering production-grade Android and iOS apps with clean architecture, real-time sync, and secure auth.</p>
+  <p>I partner with founders and teams to launch and iterate fast: 12+ shipped apps across healthcare, e-commerce, AI learning, finance, and restaurant operations. Expect clear weekly updates, testable builds, and Firebase-backed reliability from day one.</p>
 </section>
 
-<section>
+<section id="skills">
   <h2>Core Skills</h2>
   <div class="grid">
     <div class="card">
@@ -413,7 +416,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   navLinkMap.set(id, link);
 });
 
-const observedSections = ['projects', 'testimonials', 'contact']
+const observedSections = ['about', 'skills', 'projects', 'testimonials', 'contact']
   .map(id => document.getElementById(id))
   .filter(Boolean);
 
