@@ -145,6 +145,9 @@
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
     .nav-links a:hover::after { transform: scaleX(1); }
 
+    .nav-links a.active { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
     .nav-actions {
       display: flex;
       align-items: center;
@@ -402,6 +405,48 @@ window.addEventListener('scroll', () => {
     navInner.classList.remove('nav-shadow');
   }
 });
+
+// Highlight active nav link based on scroll position
+const navLinkMap = new Map();
+document.querySelectorAll('.nav-links a').forEach(link => {
+  const id = link.getAttribute('href').replace('#', '');
+  navLinkMap.set(id, link);
+});
+
+const observedSections = ['projects', 'testimonials', 'contact']
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+const setActive = (id) => {
+  navLinkMap.forEach(link => link.classList.remove('active'));
+  const target = navLinkMap.get(id);
+  if (target) target.classList.add('active');
+};
+
+// Scroll spy using viewport anchor line
+if (observedSections.length) {
+  let ticking = false;
+  const handleScrollSpy = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      const anchor = window.innerHeight * 0.38; // favor upper-mid viewport
+      let current = null;
+      observedSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= anchor && rect.bottom >= anchor) {
+          current = section.id;
+        }
+      });
+      setActive(current);
+      ticking = false;
+    });
+  };
+
+  window.addEventListener('scroll', handleScrollSpy, { passive: true });
+  window.addEventListener('resize', handleScrollSpy, { passive: true });
+  handleScrollSpy();
+}
 </script>
 
 <style>
@@ -414,6 +459,7 @@ body.light .card{background:#ffffff;color:#020617;}
 body.light .nav-inner{background:rgba(255,255,255,0.7);border-color:rgba(15,23,42,0.12);} 
 body.light .nav-links a{color:#0f172a;} 
 body.light .nav-links a:hover{background:rgba(15,23,42,0.05);color:#111827;} 
+body.light .nav-links a.active{color:#0f172a;background:rgba(15,23,42,0.08);} 
 body.light .nav-cta{box-shadow:0 10px 25px rgba(37,99,235,0.28);} 
 body.light .theme-toggle{background:rgba(15,23,42,0.04);color:#0f172a;border-color:rgba(15,23,42,0.15);} 
 body.light .theme-toggle:hover{background:rgba(15,23,42,0.08);border-color:rgba(15,23,42,0.3);} 
