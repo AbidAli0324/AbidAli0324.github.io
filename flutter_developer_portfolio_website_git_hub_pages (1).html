@@ -83,6 +83,110 @@
       background: #020617;
     }
 
+    /* Floating glassmorphic navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 16px 20px 0;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border-radius: 999px;
+      padding: 14px 20px;
+      gap: 14px;
+      opacity: 0;
+      transform: translateY(-6px);
+      animation: navFadeIn 0.85s ease 0.05s forwards;
+    }
+
+    .nav-inner.nav-shadow { box-shadow: 0 16px 36px rgba(0,0,0,0.32); border-color: rgba(148, 163, 184, 0.28); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 999px;
+      position: relative;
+      transition: color 0.25s ease, background 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 6px;
+      height: 2px;
+      background: linear-gradient(90deg, #60a5fa, #2563eb);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+      opacity: 0.9;
+    }
+
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4); }
+
+    .theme-toggle {
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.3);
+      background: rgba(255,255,255,0.04);
+      color: #e5e7eb;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .theme-toggle:hover { background: rgba(255,255,255,0.08); border-color: rgba(148,163,184,0.6); }
+
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner { flex-wrap: wrap; gap: 10px; padding: 12px 14px; border-radius: 18px; }
+      .nav-links { width: 100%; justify-content: center; }
+      .nav-actions { width: 100%; justify-content: center; }
+    }
+
     .cta h2 { color: #fff; }
 
     .btn {
@@ -116,11 +220,18 @@
   <p style="margin:0 auto;">Software Engineering student with 12+ production Flutter apps, Firebase expertise, and AI-powered mobile application development experience.</p>
 </header>
 
-<nav style="text-align:center;padding:15px;background:#020617;">
-  <a href="#projects" style="margin:0 10px;color:#93c5fd;text-decoration:none;">Projects</a>
-  <a href="#testimonials" style="margin:0 10px;color:#93c5fd;text-decoration:none;">Testimonials</a>
-  <a href="#contact" style="margin:0 10px;color:#93c5fd;text-decoration:none;">Contact</a>
-  <button onclick="toggleTheme()" style="margin-left:20px;padding:6px 14px;border-radius:20px;border:none;cursor:pointer;">🌙 / ☀️</button>
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-cta" href="#contact">Hire Me</a>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+    </div>
+  </div>
 </nav>
 
 <section>
@@ -280,6 +391,17 @@
 function toggleTheme(){
   document.body.classList.toggle('light');
 }
+
+// Add subtle shadow on scroll for the navbar
+const navInner = document.querySelector('.nav-inner');
+window.addEventListener('scroll', () => {
+  if (!navInner) return;
+  if (window.scrollY > 12) {
+    navInner.classList.add('nav-shadow');
+  } else {
+    navInner.classList.remove('nav-shadow');
+  }
+});
 </script>
 
 <style>
@@ -289,6 +411,13 @@ body.light{
 }
 body.light header{background:linear-gradient(135deg,#60a5fa,#2563eb);}
 body.light .card{background:#ffffff;color:#020617;}
+body.light .nav-inner{background:rgba(255,255,255,0.7);border-color:rgba(15,23,42,0.12);} 
+body.light .nav-links a{color:#0f172a;} 
+body.light .nav-links a:hover{background:rgba(15,23,42,0.05);color:#111827;} 
+body.light .nav-cta{box-shadow:0 10px 25px rgba(37,99,235,0.28);} 
+body.light .theme-toggle{background:rgba(15,23,42,0.04);color:#0f172a;border-color:rgba(15,23,42,0.15);} 
+body.light .theme-toggle:hover{background:rgba(15,23,42,0.08);border-color:rgba(15,23,42,0.3);} 
+body.light .nav-inner.nav-shadow{box-shadow:0 16px 32px rgba(15,23,42,0.18);border-color:rgba(15,23,42,0.2);} 
 </style>
 
 </body>
