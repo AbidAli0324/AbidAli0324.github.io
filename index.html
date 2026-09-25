@@ -1,483 +1,865 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flutter Mobile App Developer | Portfolio</title>
-  <meta name="description" content="Professional Flutter Mobile App Developer portfolio with Firebase and AI experience." />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <title>Abid Ali | Flutter App Developer — Production Android & iOS</title>
+  <meta name="description" content="Flutter developer who ships production Android and iOS apps for healthcare, marketplaces, commerce, and operations. Firebase, clean architecture, weekly test builds. Available worldwide." />
+  <meta name="theme-color" content="#08090d" />
+  <meta property="og:title" content="Abid Ali — Flutter App Developer" />
+  <meta property="og:description" content="25+ shipped products. Production Flutter apps with Firebase, AI, and store-ready releases." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abid Ali",
+    "jobTitle": "Flutter Mobile App Developer",
+    "email": "mailto:abidalimughal0324@gmail.com",
+    "url": "https://abidali0324.github.io",
+    "sameAs": ["https://www.linkedin.com/in/m-abid-ali"]
+  }
+  </script>
   <style>
+    :root {
+      --bg: #08090d;
+      --bg-2: #0c0e16;
+      --surface: #12141e;
+      --surface-2: #181b28;
+      --line: rgba(255,255,255,0.08);
+      --text: #f1f4fb;
+      --muted: #9aa3b8;
+      --accent: #7c9cff;
+      --mint: #3ee0b6;
+      --warn: #f5c16c;
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
+      --radius: 22px;
+      --max: 1180px;
+    }
+    body.light {
+      --bg: #f4f6fb;
+      --bg-2: #eef1f8;
+      --surface: #ffffff;
+      --surface-2: #f7f8fc;
+      --line: rgba(15,23,42,0.1);
+      --text: #0c1222;
+      --muted: #4b5568;
+      --accent: #3b5bcc;
+      --mint: #0f9f7b;
+      --warn: #b45309;
+      --shadow: 0 20px 50px rgba(15,23,42,0.08);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
-    header {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(124,156,255,0.18), transparent 55%),
+        radial-gradient(800px 480px at 95% 8%, rgba(62,224,182,0.1), transparent 50%),
+        radial-gradient(700px 400px at 50% 100%, rgba(124,156,255,0.06), transparent 55%);
+      z-index: 0;
     }
-    header h1 { font-size: 2.8rem; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; max-width: 800px; margin: auto; }
-
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    button, .btn { font-family: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 12px;
     }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #93c5fd;
+    .eyebrow::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 6px rgba(62,224,182,0.15);
     }
+    h1, h2, h3 { font-family: 'Syne', sans-serif; line-height: 1.12; letter-spacing: -0.03em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); margin-bottom: 16px; }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 640px; }
+    section { position: relative; z-index: 1; padding: 92px 0; }
+    .section-head { margin-bottom: 36px; }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    /* Featured Projects: mobile-first single column, lock to two columns on desktop for wider cards */
-    #projects .grid {
-      grid-template-columns: 1fr;
-    }
-
-    .card {
-      background: #020617;
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      height: 100%;
-    }
-
-    .card h3 { margin-bottom: 6px; color: #60a5fa; }
-
-    .card p { margin-bottom: 8px; line-height: 1.6; }
-
-    .card ul { margin-bottom: 10px; padding-left: 18px; }
-
-    .card li { margin-bottom: 7px; line-height: 1.5; }
-
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-
-    @media (min-width: 960px) {
-      #projects .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
-      #projects .card ul { margin-bottom: 8px; }
-      #projects .card li { margin-bottom: 7px; }
-    }
-
-    .cta {
-      text-align: center;
-      padding: 80px 20px;
-      background: #020617;
-    }
-
-    /* Floating glassmorphic navbar */
-    .navbar {
+    .nav {
       position: sticky;
       top: 0;
-      z-index: 10;
-      padding: 16px 20px 0;
+      z-index: 40;
+      padding: 14px 0 0;
     }
-
     .nav-inner {
-      max-width: 1100px;
+      width: min(var(--max), calc(100% - 24px));
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      gap: 16px;
+      padding: 10px 10px 10px 18px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-radius: 999px;
-      padding: 14px 20px;
-      gap: 14px;
-      opacity: 0;
-      transform: translateY(-6px);
-      animation: navFadeIn 0.85s ease 0.05s forwards;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.18);
     }
-
-    .nav-inner.nav-shadow { box-shadow: 0 16px 36px rgba(0,0,0,0.32); border-color: rgba(148, 163, 184, 0.28); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .nav-links a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 999px;
-      position: relative;
-      transition: color 0.25s ease, background 0.25s ease;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 6px;
-      height: 2px;
-      background: linear-gradient(90deg, #60a5fa, #2563eb);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.25s ease;
-      opacity: 0.9;
-    }
-
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-
-    .nav-links a.active { color: #fff; background: rgba(255,255,255,0.08); }
-    .nav-links a.active::after { transform: scaleX(1); }
-
-    .nav-actions {
+    .nav-inner.nav-shadow { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+    .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    .nav-cta {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #2563eb, #1e3a8a);
-      color: #fff;
-      font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 800;
+      letter-spacing: -0.03em;
     }
-
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(37, 99, 235, 0.4); }
-
-    .theme-toggle {
-      padding: 9px 12px;
+    .brand-mark {
+      width: 36px;
+      height: 36px;
       border-radius: 12px;
-      border: 1px solid rgba(148,163,184,0.3);
-      background: rgba(255,255,255,0.04);
-      color: #e5e7eb;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .theme-toggle:hover { background: rgba(255,255,255,0.08); border-color: rgba(148,163,184,0.6); }
-
-    @keyframes navFadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 720px) {
-      .nav-inner { flex-wrap: wrap; gap: 10px; padding: 12px 14px; border-radius: 18px; }
-      .nav-links { width: 100%; justify-content: center; }
-      .nav-actions { width: 100%; justify-content: center; }
-    }
-
-    .cta h2 { color: #fff; }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 30px;
-      background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .btn:hover { background: #1e40af; }
-
-    .about-list {
-      list-style: none;
-      padding-left: 0;
       display: grid;
-      gap: 8px;
-      margin-top: 12px;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), #4158d0);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
     }
-
-    .about-list li {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(148,163,184,0.18);
-      border-radius: 10px;
-      padding: 10px 12px;
-      color: #e5e7eb;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0 10px;
-    }
-
-    .badge-row .badge {
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.92rem;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.12);
-      border: 1px solid rgba(148,163,184,0.2);
-      color: #e5e7eb;
-      font-weight: 500;
-      font-size: 0.95rem;
-      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .theme-toggle {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
-    footer {
-      text-align: center;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #4f6fff);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(124,156,255,0.28);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    body.light .btn-primary { color: #fff; }
+
+    .hero { padding: 28px 0 36px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.8fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--mint) 35%, var(--line));
+      background: color-mix(in srgb, var(--mint) 10%, transparent);
+      color: var(--mint);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .avail i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      animation: pulse 1.6s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(62,224,182,0.45); }
+      50% { box-shadow: 0 0 0 7px rgba(62,224,182,0); }
+    }
+    .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.55rem); margin-bottom: 14px; }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--accent), var(--mint));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-copy { font-size: 1.12rem; color: var(--muted); max-width: 620px; margin-bottom: 26px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .metric {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface) 80%, transparent);
+    }
+    .metric b { display: block; font-size: 1.55rem; font-family: 'Syne', sans-serif; }
+    .metric span { color: var(--muted); font-size: 0.86rem; }
+
+    .portrait-wrap { position: relative; }
+    .portrait {
+      width: min(100%, 420px);
+      margin-left: auto;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--surface);
+    }
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center 12%;
+    }
+    .float-card {
+      position: absolute;
+      left: -8px;
+      bottom: 28px;
+      width: min(240px, 70%);
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+    .float-card strong { display: block; font-size: 0.95rem; }
+    .float-card span { color: var(--muted); font-size: 0.8rem; }
+
+    .marquee {
+      padding: 8px 0 20px;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 28px;
+      width: max-content;
+      animation: slide 28s linear infinite;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+    @keyframes slide { to { transform: translateX(-50%); } }
+
+    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .service {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      min-height: 180px;
+    }
+    .service h3 { font-size: 1.15rem; margin: 10px 0 8px; }
+    .service p { color: var(--muted); font-size: 0.94rem; }
+    .ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--accent) 16%, transparent);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .case-list { display: grid; gap: 18px; }
+    .case {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--surface), var(--bg-2));
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .case:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+    .phone {
+      width: 180px;
+      height: 320px;
+      margin: 8px auto;
+      border-radius: 28px;
+      padding: 10px;
+      background: #090b12;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .phone-screen {
+      position: relative;
+      height: 100%;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      color: #fff;
+      overflow: hidden;
+    }
+    .phone-screen::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 16px;
+      right: 16px;
+      height: 46%;
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04)),
+        repeating-linear-gradient(180deg, rgba(255,255,255,0.12) 0 10px, transparent 10px 22px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .phone-screen span { font-family: 'Syne', sans-serif; font-size: 1.25rem; }
+    .phone-screen small { opacity: 0.8; }
+    .c1 { background: linear-gradient(160deg, #1d4ed8, #0f172a 70%); }
+    .c2 { background: linear-gradient(160deg, #0f766e, #042f2e 70%); }
+    .c3 { background: linear-gradient(160deg, #7c3aed, #1e1b4b 70%); }
+    .c4 { background: linear-gradient(160deg, #0369a1, #0b1220 70%); }
+    .c5 { background: linear-gradient(160deg, #b45309, #1c1917 70%); }
+    .c6 { background: linear-gradient(160deg, #be185d, #1f1220 70%); }
+    .case-tag { color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .case h3 { font-size: 1.7rem; margin: 8px 0 10px; }
+    .case p { color: var(--muted); margin-bottom: 12px; }
+    .case ul { padding-left: 18px; color: var(--text); }
+    .case li { margin-bottom: 6px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chip {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 22px; }
+    .filters button {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .filters button.active, .filters button:hover { color: var(--text); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); }
+    .archive {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .mini {
       padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mini h3 { font-size: 1.12rem; }
+    .mini p { color: var(--muted); font-size: 0.92rem; }
+    .mini .tech { margin-top: auto; font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .step {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .num { font-family: 'Syne', sans-serif; font-size: 2rem; color: var(--accent); }
+    .step h3 { margin: 8px 0; }
+    .step p { color: var(--muted); }
+
+    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card p, .card li { color: var(--muted); }
+    .card ul { padding-left: 18px; }
+    .card li { margin-bottom: 6px; }
+
+    .quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .quote {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .quote p { font-size: 1.02rem; margin-bottom: 16px; }
+    .who { display: flex; align-items: center; gap: 10px; }
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: color-mix(in srgb, var(--accent) 20%, transparent);
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .who strong { display: block; font-size: 0.92rem; }
+    .who span { color: var(--muted); font-size: 0.78rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .checks { list-style: none; display: grid; gap: 10px; }
+    .checks li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .cta {
+      border-radius: 32px;
+      padding: 48px 36px;
+      background:
+        linear-gradient(160deg, color-mix(in srgb, var(--accent) 22%, var(--surface)), var(--surface));
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    .cta p { color: var(--muted); max-width: 620px; margin: 0 auto 22px; }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 28px 0 40px;
+      color: var(--muted);
+      text-align: center;
       font-size: 0.9rem;
-      background: #020617;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .case, .about-grid, .quotes, .skill-grid, .services, .steps, .archive { grid-template-columns: 1fr; }
+      .archive { grid-template-columns: 1fr 1fr; }
+      .metrics { grid-template-columns: 1fr; }
+      .portrait { margin: 0 auto; }
+      .float-card { left: 12px; }
+    }
+    @media (max-width: 720px) {
+      .menu-toggle { display: inline-flex; }
+      .nav-links, .nav-actions .nav-cta { display: none; }
+      .nav-inner.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        order: 4;
+      }
+      .nav-inner { flex-wrap: wrap; border-radius: 22px; }
+      .archive, .services { grid-template-columns: 1fr; }
+      section { padding: 68px 0; }
+      .phone { height: 260px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <img src="images/DP pic.jpeg" alt="Professional profile photo" style="width:clamp(150px, 40vw, 190px);height:clamp(150px, 40vw, 190px);border-radius:50%;object-fit:cover;border:3px solid #93c5fd;display:block;margin:0 auto 20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);transform:scale(1);transition:transform 0.25s ease, box-shadow 0.25s ease;" onmouseenter="this.style.transform='scale(1.03)';this.style.boxShadow='0 12px 28px rgba(0,0,0,0.28)';" onmouseleave="this.style.transform='scale(1)';this.style.boxShadow='0 10px 25px rgba(0,0,0,0.25)';" />
-  <div style="font-size:1.6rem;font-weight:600;letter-spacing:0.01em;margin-bottom:12px;">Abid Ali</div>
-  <h1 style="margin-bottom:16px;">Flutter Mobile App Developer</h1>
-  <p style="margin:0 auto;">Software Engineering student with 2+ years of experience, 12+ production Flutter apps, Firebase expertise, and AI-powered mobile application development.</p>
-</header>
-
-<nav class="navbar">
-  <div class="nav-inner">
+<nav class="nav">
+  <div class="nav-inner" id="navInner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">AA</span>
+      Abid Ali
+    </a>
     <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#testimonials">Testimonials</a>
+      <a href="#proof">Proof</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-actions">
-      <a class="nav-cta" href="#contact">Hire Me</a>
-      <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">◐</button>
+      <a class="btn btn-primary nav-cta" href="#contact">Hire me</a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">Menu</button>
     </div>
   </div>
 </nav>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p><strong>Abid Ali — Flutter Mobile App Developer</strong>. With 2+ years of experience, I build production Android/iOS apps with clean architecture, real-time sync, secure auth, and fast releases.</p>
-  <ul class="about-list">
-    <li>12+ shipped apps for healthcare, e-commerce, AI learning, finance, and restaurant operations.</li>
-    <li>Weekly test builds and clear updates so you always see progress.</li>
-    <li>Firebase-backed reliability: auth, real-time data, push, and performance tuning.</li>
-    <li>Jump into existing codebases to fix bugs, stabilize releases, and ship new features without downtime.</li>
-  </ul>
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="avail"><i></i> Available for international Flutter projects</div>
+      <h1>I ship <em>production Flutter apps</em> businesses actually run on.</h1>
+      <p class="hero-copy">Android and iOS products with clean architecture, Firebase, and weekly test builds — so you see progress, not surprises. Remote, timezone-flexible, built for founders and operators who need the app live.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">See selected work</a>
+        <a class="btn btn-ghost" href="mailto:abidalimughal0324@gmail.com?subject=Flutter%20project%20inquiry">Start a project</a>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>25+</b><span>Shipped products</span></div>
+        <div class="metric"><b>2+ yrs</b><span>Production Flutter</span></div>
+        <div class="metric"><b>48h</b><span>Scope & first plan</span></div>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait">
+        <img src="images/DP%20pic.png" alt="Abid Ali, Flutter mobile app developer" />
+      </div>
+      <div class="float-card">
+        <strong>Abid Ali</strong>
+        <span>Flutter · Firebase · AI in mobile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Healthcare</span><span>Marketplaces</span><span>E-commerce</span><span>Education</span><span>Restaurant ops</span><span>Finance</span><span>Pharmacy</span><span>Agriculture</span><span>AI products</span>
+    <span>Healthcare</span><span>Marketplaces</span><span>E-commerce</span><span>Education</span><span>Restaurant ops</span><span>Finance</span><span>Pharmacy</span><span>Agriculture</span><span>AI products</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Selected work</div>
+      <h2>Case studies clients hire from.</h2>
+      <p class="lead">Real products with roles, auth, live data, and release discipline — not demo screens.</p>
+    </div>
+    <div class="case-list">
+      <article class="case">
+        <div class="phone"><div class="phone-screen c1"><small>Marketplace</small><span>ArcticGO</span></div></div>
+        <div>
+          <div class="case-tag">Flutter · Laravel API</div>
+          <h3>ArcticGO</h3>
+          <p>One on-demand app for merchants, providers, grocery shoppers, cleaners, and drivers — onboarding through payouts in a single product.</p>
+          <ul>
+            <li>OTP auth, role verification, and compliance document upload</li>
+            <li>Merchant store, bank payouts, and job request dashboards</li>
+            <li>Token-secured Laravel API consumed by the Flutter client</li>
+          </ul>
+          <div class="chips"><span class="chip">Riverpod</span><span class="chip">Dio</span><span class="chip">Laravel</span><span class="chip">MySQL</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="phone"><div class="phone-screen c2"><small>School SaaS</small><span>SchoolSync</span></div></div>
+        <div>
+          <div class="case-tag">Flutter · Subscriptions</div>
+          <h3>SchoolSync</h3>
+          <p>Admin, teacher, accountant, and parent work in one school OS — with plan gates that match what the school actually bought.</p>
+          <ul>
+            <li>Attendance, admissions, timetable, fees, and payroll</li>
+            <li>Tiered feature locks, payment proofs, and report cards</li>
+            <li>AI document assistant for school records</li>
+          </ul>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">REST</span><span class="chip">Billing tiers</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="phone"><div class="phone-screen c3"><small>US healthcare</small><span>ClaimGuard AI</span></div></div>
+        <div>
+          <div class="case-tag">AI · Clinic ops</div>
+          <h3>ClaimGuard AI</h3>
+          <p>Denial-management workspace for US clinics: intake, scoring, and a shared board instead of inbox chaos.</p>
+          <ul>
+            <li>Clinic dashboards and denial workflow</li>
+            <li>FastAPI recommendations with Supabase auth</li>
+            <li>Staging deploy on Vercel + Render</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">Supabase</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="phone"><div class="phone-screen c4"><small>Healthcare</small><span>Hospital App</span></div></div>
+        <div>
+          <div class="case-tag">Flutter · Firebase</div>
+          <h3>Hospital Management</h3>
+          <p>Front desk, doctors, and staff stay on one schedule — patients, appointments, and roles without spreadsheet drift.</p>
+          <ul>
+            <li>Patient profiles and appointment booking</li>
+            <li>Role-based access for staff and admin</li>
+            <li>Secure Firebase auth and Firestore operations</li>
+          </ul>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="phone"><div class="phone-screen c5"><small>Multi-role</small><span>Restaurant Suite</span></div></div>
+        <div>
+          <div class="case-tag">Flutter · Real-time</div>
+          <h3>Restaurant &amp; Delivery</h3>
+          <p>Customer, kitchen/admin, and driver apps share one live order pipeline — no lost tickets between the counter and the road.</p>
+          <ul>
+            <li>Menu, cart, and order placement for customers</li>
+            <li>Admin pricing, food, and order control</li>
+            <li>Driver assignments with FCM status updates</li>
+          </ul>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">Firestore</span><span class="chip">FCM</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="phone"><div class="phone-screen c6"><small>RAG product</small><span>PDF Chatbot</span></div></div>
+        <div>
+          <div class="case-tag">Flutter · AI</div>
+          <h3>AI PDF Chatbot</h3>
+          <p>Users upload PDFs and images, then ask questions against their own files — with usage tiers and restored sessions.</p>
+          <ul>
+            <li>OCR, indexing, and vector retrieval</li>
+            <li>Owned-document auth and chat history</li>
+            <li>Pricing, payments, and monthly usage caps</li>
+          </ul>
+          <div class="chips"><span class="chip">Flutter</span><span class="chip">FastAPI</span><span class="chip">RAG</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Full archive</div>
+      <h2>Every product behind the 25+ count.</h2>
+      <p class="lead">Filter by domain. This is the work I can walk a client through on a call.</p>
+    </div>
+    <div class="filters" role="tablist" aria-label="Filter projects">
+      <button type="button" class="active" data-filter="all">All</button>
+      <button type="button" data-filter="flutter">Flutter</button>
+      <button type="button" data-filter="healthcare">Healthcare</button>
+      <button type="button" data-filter="ai">AI</button>
+      <button type="button" data-filter="saas">Web / SaaS</button>
+      <button type="button" data-filter="desktop">Desktop / ERP</button>
+    </div>
+    <div class="archive">
+      <article class="mini" data-cats="flutter saas"><div class="case-tag">Marketplace</div><h3>ArcticGO</h3><p>Multi-role on-demand marketplace with merchant payouts and driver/shopper flows.</p><div class="tech">Flutter · Riverpod · Laravel</div></article>
+      <article class="mini" data-cats="flutter saas"><div class="case-tag">Education</div><h3>SchoolSync</h3><p>School ERP with attendance, fees, payroll, and subscription feature gates.</p><div class="tech">Flutter · REST · Billing</div></article>
+      <article class="mini" data-cats="ai saas healthcare"><div class="case-tag">Healthcare AI</div><h3>ClaimGuard AI</h3><p>US clinic denial management with scoring and a shared operations board.</p><div class="tech">Next.js · FastAPI · Supabase</div></article>
+      <article class="mini" data-cats="flutter ai"><div class="case-tag">RAG</div><h3>AI PDF Chatbot</h3><p>Ask questions on uploaded PDFs and images with tiers and session restore.</p><div class="tech">Flutter · FastAPI · Vectors</div></article>
+      <article class="mini" data-cats="flutter ai healthcare"><div class="case-tag">Health</div><h3>NutriScan AI</h3><p>Food scanner, meal log, family profiles, and an AI nutrition coach.</p><div class="tech">Flutter · Riverpod · ML</div></article>
+      <article class="mini" data-cats="flutter healthcare"><div class="case-tag">Hospital</div><h3>Hospital Management App</h3><p>Patients, doctor schedules, and role-based staff access on Firebase.</p><div class="tech">Flutter · Firebase</div></article>
+      <article class="mini" data-cats="flutter healthcare saas"><div class="case-tag">Telehealth</div><h3>HealthBridge</h3><p>Insurance checks, doctor listing, and Sanctum-secured booking APIs.</p><div class="tech">Flutter · Laravel</div></article>
+      <article class="mini" data-cats="desktop healthcare"><div class="case-tag">Clinic ERP</div><h3>Al-Shafi Dental Software</h3><p>Windows clinic ERP with installers, SQL Server, and consent PDFs.</p><div class="tech">C# · SQL Server</div></article>
+      <article class="mini" data-cats="desktop healthcare"><div class="case-tag">Hospital ERP</div><h3>HospitalERP Desktop</h3><p>Front-desk hospital ERP with roles and SQL-backed daily operations.</p><div class="tech">C# · WPF · SQL Server</div></article>
+      <article class="mini" data-cats="flutter healthcare"><div class="case-tag">Billing</div><h3>Billing Brain</h3><p>ICD-to-lab mapping with OCR capture, search, and CSV export.</p><div class="tech">Flutter · ML Kit</div></article>
+      <article class="mini" data-cats="flutter healthcare"><div class="case-tag">Pharmacy</div><h3>PharmaEase</h3><p>Customer + admin pharmacy portals in one Flutter codebase.</p><div class="tech">Flutter · BLoC · Laravel</div></article>
+      <article class="mini" data-cats="desktop healthcare"><div class="case-tag">Pharmacy</div><h3>Pharmacy Management</h3><p>Windows inventory and sales for daily pharmacy staff.</p><div class="tech">C# · WinForms</div></article>
+      <article class="mini" data-cats="flutter ai"><div class="case-tag">Vision</div><h3>Face Attendance</h3><p>Offline face match, liveness checks, and local model training.</p><div class="tech">Flutter · Python · OpenCV</div></article>
+      <article class="mini" data-cats="flutter ai"><div class="case-tag">EdTech</div><h3>Kids Learning App</h3><p>Alphabet and number recognition with live AI feedback for children.</p><div class="tech">Flutter · Keras · Firebase</div></article>
+      <article class="mini" data-cats="saas"><div class="case-tag">E-learning</div><h3>Course Sharing Platform</h3><p>Instructors, students, quizzes, assignments, and PDF certificates.</p><div class="tech">Laravel · Blade · MySQL</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Agri</div><h3>Farm Management</h3><p>Farms, crops, worker tasks, salaries, advances, and reports.</p><div class="tech">Flutter · Firebase</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Commerce</div><h3>E-Commerce App</h3><p>Catalog, cart, checkout, order tracking, and admin product control.</p><div class="tech">Flutter · Firebase</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Ops</div><h3>Restaurant &amp; Delivery</h3><p>Customer, admin, and driver roles with live order status.</p><div class="tech">Flutter · Firestore · FCM</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Finance</div><h3>Expense Tracker</h3><p>Budgets, category spend, limit warnings, and period reports.</p><div class="tech">Flutter · Firestore</div></article>
+      <article class="mini" data-cats="saas"><div class="case-tag">Rewards</div><h3>EarnFi</h3><p>Daily tasks, wallets, referrals, and withdrawal approvals.</p><div class="tech">React · Laravel</div></article>
+      <article class="mini" data-cats="desktop"><div class="case-tag">Retail</div><h3>Karyana POS</h3><p>Grocery POS with stock alerts, barcodes, credit, and reports.</p><div class="tech">C# · SQL Server</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Chat</div><h3>Chatify</h3><p>1:1 and group chat with media, voice notes, and push.</p><div class="tech">Flutter · Firebase</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">Focus</div><h3>Attention Anchor</h3><p>Intention-based focus sessions with local insights — no app blocking.</p><div class="tech">Flutter · Riverpod</div></article>
+      <article class="mini" data-cats="flutter desktop"><div class="case-tag">Tooling</div><h3>Flutter Visual Builder</h3><p>Desktop canvas that generates Flutter code from a widget graph.</p><div class="tech">Flutter Desktop · Hive</div></article>
+      <article class="mini" data-cats="flutter"><div class="case-tag">WebView</div><h3>Website to App</h3><p>Turn any site into an app with tabs, QR open, and optional lock.</p><div class="tech">Flutter · WebView</div></article>
+      <article class="mini" data-cats="saas"><div class="case-tag">Utility</div><h3>Website Snapshot</h3><p>Full-page screenshot and PDF capture from any public URL.</p><div class="tech">Node.js · Tailwind</div></article>
+      <article class="mini" data-cats="saas"><div class="case-tag">QA</div><h3>Play Store Checker</h3><p>Python checks for Play listing metadata before a store release.</p><div class="tech">Python</div></article>
+      <article class="mini" data-cats="flutter saas"><div class="case-tag">Scraper</div><h3>Price Scraper + Shop</h3><p>Amazon/Flipkart price collection with a Flutter storefront API.</p><div class="tech">Python · Flutter · Flask</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How I work</div>
+      <h2>A process international clients can trust.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Scope in 48 hours</h3><p>You get roles, screens, and a milestone plan before I write production code. No vague “we’ll see.”</p></div>
+      <div class="step"><div class="num">02</div><h3>Weekly test builds</h3><p>Android/iOS builds you can tap. Feedback lands in the next sprint, not at the end.</p></div>
+      <div class="step"><div class="num">03</div><h3>Store-ready handoff</h3><p>Auth, crash-free focus, push, and a codebase another Flutter developer can extend.</p></div>
+    </div>
+    <div class="services" style="margin-top:18px;">
+      <div class="service"><div class="ico">01</div><h3>New Flutter app</h3><p>From idea to Android and iOS with clean architecture and Firebase or a Laravel API.</p></div>
+      <div class="service"><div class="ico">02</div><h3>Rescue a codebase</h3><p>I jump into an existing Flutter repo, fix release blockers, and ship the next version safely.</p></div>
+      <div class="service"><div class="ico">03</div><h3>AI inside the app</h3><p>Vision, RAG chat, and on-device feedback wired to a UI people will actually use.</p></div>
+      <div class="service"><div class="ico">04</div><h3>Realtime ops apps</h3><p>Multi-role products: hospitals, restaurants, drivers, merchants — live status, not emails.</p></div>
+    </div>
+  </div>
 </section>
 
 <section id="skills">
-  <h2>Core Skills</h2>
-  <div class="badge-row">
-    <span class="badge">Weekly test builds</span>
-    <span class="badge">Store-ready releases</span>
-    <span class="badge">Crash-free focus</span>
-    <span class="badge">Push + real-time ready</span>
-  </div>
-  <div class="grid">
-    <div class="card">
-      <h3>Flutter Development</h3>
-      <ul>
-        <li>Developed and deployed production-ready Android & iOS apps using <strong>Flutter</strong> with clean architecture and modular codebase.</li>
-        <li>Expertise in state management (Provider, Bloc, Riverpod) for scalable and maintainable apps.</li>
-        <li>Integrated RESTful APIs, custom UI/UX, and platform-specific features for seamless user experiences.</li>
-        <li>Experience with animations, performance optimization, and cross-platform best practices.</li>
-      </ul>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Stack</div>
+      <h2>What I use when the app has to last.</h2>
     </div>
-    <div class="card">
-      <h3>Firebase</h3>
-      <ul>
-        <li>Implemented secure authentication (Email/Password, Google, Phone) and real-time data sync using <strong>Firebase Authentication</strong> and <strong>Firestore</strong>.</li>
-        <li>Utilized Firebase Cloud Messaging for push notifications and user engagement.</li>
-        <li>Managed cloud storage, analytics, and crash reporting for robust app monitoring and scaling.</li>
-        <li>Optimized backend operations for high availability and low-latency user experiences.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>AI Integration</h3>
-      <ul>
-        <li>Integrated <strong>Python</strong> and <strong>Keras</strong> AI models with Flutter for real-time image and data prediction.</li>
-        <li>Developed intelligent features such as alphabet/number recognition and personalized learning modules.</li>
-        <li>Designed interactive UIs to visualize AI results and enhance user engagement.</li>
-        <li>Experience with model deployment, optimization, and cross-platform AI integration.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Node.js API Implementation</h3>
-      <ul>
-        <li>Developed scalable RESTful APIs using <strong>Node.js</strong> and <strong>Express.js</strong></li>
-        <li>Authentication, CRUD operations, and integration with MongoDB/SQL</li>
-        <li>Secure endpoints and robust error handling for production deployments</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Laravel Backend API Integration</h3>
-      <ul>
-        <li>Integrated and consumed <strong>Laravel</strong> backend APIs for mobile/web apps</li>
-        <li>Authentication, data sync, and secure client-server communication</li>
-        <li>API resource management, middleware, and error handling</li>
-      </ul>
+    <div class="skill-grid">
+      <div class="card">
+        <h3>Flutter</h3>
+        <p>Production Android &amp; iOS, Riverpod / Bloc / Provider, Go Router, and UI that holds up on real devices.</p>
+      </div>
+      <div class="card">
+        <h3>Firebase</h3>
+        <p>Auth, Firestore, Storage, FCM, Crashlytics — the stack I use when you need to launch without a large backend team.</p>
+      </div>
+      <div class="card">
+        <h3>APIs &amp; AI</h3>
+        <p>Laravel and Node APIs, FastAPI RAG, Keras/vision models, and secure token flows from mobile.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <h2>Featured Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Hospital Management Mobile App</h3>
-      <p>Production-level hospital management app streamlining patient and staff operations with a secure, scalable architecture.</p>
-      <ul>
-        <li>Patient registration and profile management</li>
-        <li>Doctor scheduling and appointment booking</li>
-        <li>Role-based access for staff and administration</li>
-        <li>Secure authentication and data handling</li>
-        <li>Firebase-powered backend operations</li>
-      </ul>
-      <p><strong>Tech:</strong> Flutter, Firebase Authentication, Cloud Firestore</p>
+<section id="proof">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Client voices</div>
+      <h2>What it felt like to ship with me.</h2>
     </div>
-    <div class="card">
-      <h3>E-Commerce Mobile Application</h3>
-      <p>Full-featured e-commerce app built for real businesses with performance, usability, and secure transactions at the core.</p>
-      <ul>
-        <li>Product browsing with categories</li>
-        <li>Shopping cart and checkout system</li>
-        <li>User authentication and order tracking</li>
-        <li>Admin product and order management</li>
-        <li>Scalable backend using Firebase</li>
-      </ul>
-      <p><strong>Tech:</strong> Flutter, Firebase, Cloud Firestore</p>
-    </div>
-    <div class="card">
-      <h3>AI-Powered Kids Learning App</h3>
-      <p>Intelligent kids learning app with custom AI models for engaging, interactive education and real-time prediction results.</p>
-      <ul>
-        <li>Alphabet recognition powered by AI</li>
-        <li>Number prediction via image input</li>
-        <li>Child-friendly, interactive UI</li>
-        <li>Real-time AI prediction feedback</li>
-        <li>Secure data storage and user sessions</li>
-      </ul>
-      <p><strong>Tech:</strong> Flutter, Python, Keras, Firebase</p>
-    </div>
-    <div class="card">
-      <h3>Expense Tracker & Budget Management App</h3>
-      <p>Smart financial tracking app that helps users manage budgets, control spending, and gain clear insights into expenses.</p>
-      <ul>
-        <li>Budget creation and management (CRUD)</li>
-        <li>Expense tracking with category support</li>
-        <li>Early warning system for budget limits</li>
-        <li>Weekly, monthly, and yearly reports</li>
-        <li>Data visualization and analytics</li>
-      </ul>
-      <p><strong>Tech:</strong> Flutter, Firebase, Cloud Firestore</p>
-    </div>
-    <div class="card">
-      <h3>Restaurant Management & Food Delivery App</h3>
-      <p><strong style="color:#93c5fd;display:block;margin-bottom:8px;">Multi-Role Production App</strong>Complete restaurant management and delivery suite built for real operations with scalable, real-time order flows.</p>
-      <ul>
-        <li>Customer app: menu browsing, cart, order placement</li>
-        <li>Admin app: food management, order control, pricing</li>
-        <li>Delivery app: assigned orders and delivery tracking</li>
-        <li>Real-time order status updates across roles</li>
-        <li>Role-based authentication and secure data</li>
-      </ul>
-      <p><strong>Tech:</strong> Flutter, Firebase Authentication, Cloud Firestore, FCM</p>
+    <div class="quotes">
+      <article class="quote"><p>“Our hospital scheduling was chaos before this app. Now doctors, nurses, and front desk staff stay in sync. Build quality is solid and Abid kept us updated every sprint.”</p><div class="who"><div class="avatar">HA</div><div><strong>Hospital Admin</strong><span>Healthcare operations</span></div></div></article>
+      <article class="quote"><p>“Merchants, drivers, and shoppers were on separate chats before ArcticGO. One app now handles onboarding, jobs, and payouts. Weekly builds made each role easy to sign off.”</p><div class="who"><div class="avatar">MO</div><div><strong>Marketplace Ops</strong><span>On-demand platform</span></div></div></article>
+      <article class="quote"><p>“Fee collection and attendance lived in spreadsheets. SchoolSync put vouchers, classes, and parent view in one place — and the plan limits match what we sell.”</p><div class="who"><div class="avatar">SA</div><div><strong>School Administrator</strong><span>Education SaaS</span></div></div></article>
+      <article class="quote"><p>“Denied claims sat in inboxes for weeks. ClaimGuard queues them, scores the next action, and billing finally has a shared board.”</p><div class="who"><div class="avatar">CB</div><div><strong>Clinic Billing Lead</strong><span>US healthcare</span></div></div></article>
+      <article class="quote"><p>“Abandoned carts and slow updates were killing us. Checkout is smooth and product changes go live instantly. Timelines were met.”</p><div class="who"><div class="avatar">EO</div><div><strong>E-commerce Owner</strong><span>Retail app</span></div></div></article>
+      <article class="quote"><p>“Orders were getting lost between the diner, kitchen, and drivers. The suite synced everything in real time. Abid explained every release.”</p><div class="who"><div class="avatar">RO</div><div><strong>Restaurant Lead</strong><span>Food delivery</span></div></div></article>
     </div>
   </div>
 </section>
 
-<section id="testimonials">
-  <h2>Client Testimonials</h2>
-  <div class="grid">
-    <div class="card">
-      <p>“Our hospital scheduling was chaos before this app. Now doctors, nurses, and front desk staff stay in sync, and patient wait times dropped. Build quality is solid and Abid kept us updated every sprint.”</p>
-      <strong>— Hospital Admin</strong>
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>A Flutter specialist who thinks like an operator.</h2>
+      <p class="lead">I build apps people clock into — hospitals, schools, shops, and delivery teams. That means roles, permissions, offline-ish reliability, and a build you can install every week.</p>
     </div>
-    <div class="card">
-      <p>“We struggled with abandoned carts and slow updates. The new e-commerce app feels fast, checkout is smooth, and product changes go live instantly. Communication was clear and timelines were met.”</p>
-      <strong>— E‑Commerce Business Owner</strong>
-    </div>
-    <div class="card">
-      <p>“Our kids’ learning content wasn’t engaging. The AI-powered app now gives instant feedback on drawings and keeps parents in the loop. The build is stable, and weekly check-ins made the process easy.”</p>
-      <strong>— Education Startup Founder</strong>
-    </div>
-    <div class="card">
-      <p>“We had spreadsheets everywhere and no budget visibility. The expense tracker app now warns us before we overspend and shows clean reports. Delivery quality was high and communication was straightforward.”</p>
-      <strong>— Finance Manager</strong>
-    </div>
-    <div class="card">
-      <p>“Orders were getting lost between the diner, kitchen, and drivers. The restaurant suite synced everything in real time, and customers get accurate status updates. Abid shipped reliably and explained every release.”</p>
-      <strong>— Restaurant Operations Lead</strong>
-    </div>
+    <ul class="checks">
+      <li>25+ shipped products across healthcare, logistics, commerce, and AI.</li>
+      <li>Comfortable on a new build or an inherited Flutter repo.</li>
+      <li>Clear English updates. You always know what landed this week.</li>
+      <li>Remote worldwide — overlap with US / UK / EU hours when a sprint needs it.</li>
+    </ul>
   </div>
 </section>
 
 <section>
-  <h2>Why Hire Me?</h2>
-  <ul>
-    <li>✔ Real client project experience</li>
-    <li>✔ Business-oriented solutions</li>
-    <li>✔ Clean, maintainable code</li>
-    <li>✔ AI-powered mobile expertise</li>
-    <li>✔ Reliable communication</li>
-  </ul>
-</section>
-
-<section class="cta" id="contact">
-  <h2>Let’s Build Your App</h2>
-  <p>Available for freelance Flutter projects, Firebase integration, and AI-powered mobile applications.</p>
-  <a href="mailto:abidalimughal0324@gmail.com" class="btn">Email Me</a>
-  <a href="https://www.linkedin.com/in/m-abid-ali" class="btn" style="margin-left:10px;">LinkedIn</a>
-  <a href="Abid%20Ali%20Senior%20Mobile%20App%20Developer.pdf" class="btn" style="margin-left:10px;" download>Download CV</a>
+  <div class="wrap">
+    <div class="cta" id="contact">
+      <div class="eyebrow" style="justify-content:center;">Let’s work</div>
+      <h2>Need a Flutter developer who can prove it?</h2>
+      <p>Send the platform, the must-have screens, and your target date. I reply within one business day with a fit check and a first milestone.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:abidalimughal0324@gmail.com?subject=Flutter%20project%20inquiry">Email Abid</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/m-abid-ali" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="Abid%20Ali%20Mobile%20App%20Developer.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  © 2025 Flutter Mobile App Developer Portfolio
+  © 2026 Abid Ali · Flutter Mobile App Developer · Available worldwide
 </footer>
 
 <script>
 function toggleTheme(){
   document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
+if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
 
-// Add subtle shadow on scroll for the navbar
-const navInner = document.querySelector('.nav-inner');
-window.addEventListener('scroll', () => {
-  if (!navInner) return;
-  if (window.scrollY > 12) {
-    navInner.classList.add('nav-shadow');
-  } else {
-    navInner.classList.remove('nav-shadow');
-  }
+function toggleMenu(){
+  document.getElementById('navInner').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navInner').classList.remove('open');
+}));
+
+document.querySelectorAll('.filters button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.archive .mini').forEach(card => {
+      const cats = (card.getAttribute('data-cats') || '').split(/\s+/);
+      card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+    });
+  });
 });
 
-// Highlight active nav link based on scroll position
+const navInner = document.getElementById('navInner');
+window.addEventListener('scroll', () => {
+  navInner.classList.toggle('nav-shadow', window.scrollY > 12);
+}, { passive: true });
+
 const navLinkMap = new Map();
 document.querySelectorAll('.nav-links a').forEach(link => {
-  const id = link.getAttribute('href').replace('#', '');
-  navLinkMap.set(id, link);
+  navLinkMap.set(link.getAttribute('href').replace('#', ''), link);
 });
-
-const observedSections = ['about', 'skills', 'projects', 'testimonials', 'contact']
+const observedSections = ['work', 'process', 'about', 'proof', 'contact']
   .map(id => document.getElementById(id))
   .filter(Boolean);
 
@@ -487,22 +869,20 @@ const setActive = (id) => {
   if (target) target.classList.add('active');
 };
 
-// Scroll spy using viewport anchor line
 if (observedSections.length) {
   let ticking = false;
   const handleScrollSpy = () => {
     if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       const viewportH = window.innerHeight;
-      const anchor = viewportH * 0.45; // near mid-viewport
+      const anchor = viewportH * 0.4;
       let bestId = null;
       let bestDistance = Infinity;
-
       observedSections.forEach(section => {
         const rect = section.getBoundingClientRect();
         const midpoint = rect.top + rect.height / 2;
-        const isVisible = rect.bottom >= 60 && rect.top <= viewportH * 0.9;
+        const isVisible = rect.bottom >= 70 && rect.top <= viewportH * 0.9;
         if (!isVisible) return;
         const distance = Math.abs(midpoint - anchor);
         if (distance < bestDistance) {
@@ -510,42 +890,16 @@ if (observedSections.length) {
           bestId = section.id;
         }
       });
-
       const nearBottom = viewportH + window.scrollY >= document.body.offsetHeight - 12;
-      if (!bestId && nearBottom && observedSections.length) {
-        bestId = observedSections[observedSections.length - 1].id;
-      }
-
+      if (!bestId && nearBottom) bestId = observedSections.at(-1).id;
       setActive(bestId || observedSections[0].id);
       ticking = false;
     });
   };
-
   window.addEventListener('scroll', handleScrollSpy, { passive: true });
   window.addEventListener('resize', handleScrollSpy, { passive: true });
   handleScrollSpy();
 }
 </script>
-
-<style>
-body.light{
-  background:#f8fafc;
-  color:#020617;
-}
-body.light header{background:linear-gradient(135deg,#60a5fa,#2563eb);}
-body.light .card{background:#ffffff;color:#020617;}
-body.light .nav-inner{background:rgba(255,255,255,0.7);border-color:rgba(15,23,42,0.12);} 
-body.light .nav-links a{color:#0f172a;} 
-body.light .nav-links a:hover{background:rgba(15,23,42,0.05);color:#111827;} 
-body.light .nav-links a.active{color:#0f172a;background:rgba(15,23,42,0.08);} 
-body.light .nav-cta{box-shadow:0 10px 25px rgba(37,99,235,0.28);} 
-body.light .theme-toggle{background:rgba(15,23,42,0.04);color:#0f172a;border-color:rgba(15,23,42,0.15);} 
-body.light .theme-toggle:hover{background:rgba(15,23,42,0.08);border-color:rgba(15,23,42,0.3);} 
-body.light .nav-inner.nav-shadow{box-shadow:0 16px 32px rgba(15,23,42,0.18);border-color:rgba(15,23,42,0.2);} 
-body.light .about-list li{background:rgba(15,23,42,0.05);border-color:rgba(15,23,42,0.12);color:#0f172a;} 
-body.light .badge-row .badge{background:rgba(37,99,235,0.12);border-color:rgba(15,23,42,0.14);color:#0f172a;} 
-body.light footer{background:#e2e8f0;color:#0f172a;} 
-</style>
-
 </body>
-</html> -->
+</html>
