@@ -255,10 +255,16 @@
     .metric b { display: block; font-size: 1.55rem; font-family: 'Syne', sans-serif; }
     .metric span { color: var(--muted); font-size: 0.86rem; }
 
-    .portrait-wrap { position: relative; }
-    .portrait {
+    .portrait-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
       width: min(100%, 420px);
       margin-left: auto;
+    }
+    .portrait {
+      width: 100%;
       border-radius: 32px;
       overflow: hidden;
       border: 1px solid var(--line);
@@ -272,16 +278,13 @@
       object-position: center 12%;
     }
     .float-card {
-      position: absolute;
-      left: -8px;
-      bottom: 28px;
-      width: min(240px, 70%);
+      width: 100%;
       padding: 14px 16px;
       border-radius: 18px;
-      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      background: var(--surface);
       border: 1px solid var(--line);
-      backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
+      text-align: center;
     }
     .float-card strong { display: block; font-size: 0.95rem; }
     .float-card span { color: var(--muted); font-size: 0.8rem; }
@@ -506,8 +509,7 @@
       .hero-grid, .case, .about-grid, .quotes, .skill-grid, .services, .steps, .archive { grid-template-columns: 1fr; }
       .archive { grid-template-columns: 1fr 1fr; }
       .metrics { grid-template-columns: 1fr; }
-      .portrait { margin: 0 auto; }
-      .float-card { left: 12px; }
+      .portrait-wrap { margin: 0 auto; align-items: center; }
     }
     @media (max-width: 720px) {
       .menu-toggle { display: inline-flex; }
